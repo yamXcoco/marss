@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>화성이주 프로젝트</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="./js/scroll.js"></script>
     <link
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   </head>
   <body>
     <div class="header">
       <div class="logo">
-        <img src="./images/icon.png" alt="" />
+        <img id="icon" src="./images/icon.png" alt="" />
       </div>
       <ul class="nav">
-        <li><a href="#x">우주환경</a></li>
-        <li><a href="#x">화성환경</a></li>
-        <li><a href="#x">신청하기</a></li>
+        <li><a href="#sec1">우주환경</a></li>
+        <li><a href="#sec2">화성환경</a></li>
+        <li><a href="#sec3">신청하기</a></li>
       </ul>
       <div class="hamburger"><i class="xi-bars"></i></div>
     </div>
@@ -107,7 +110,7 @@
         ></path>
       </svg>
     </div>
-    <div class="content2">
+    <div class="content2" id="sec1">
       <div class="textbox">
         <h1>우주! 어디까지 알고 있니?</h1>
         <h2>
@@ -123,7 +126,14 @@
                 - 칼 세이건
         </pre>
       </div>
-      <div class="imgbox"></div>
+      <div class="imgbox">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <!-- <img src="./images/space_03.png" alt="" />
+        <img src="./images/space_05.png" alt="" />
+        <img src="./images/space_06.png" alt="" /> -->
+      </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2834.65 1417.32">
         <path
           class="path path2"
@@ -144,7 +154,7 @@
         ></path>
       </svg>
     </div>
-    <div class="content3">
+    <div class="content3" id="sec2">
       <div class="bg"></div>
     </div>
     <div class="content4">
@@ -212,8 +222,47 @@
           c80,74-104.422,213.2,42,264c98,34,54.649-52,68.649-52"
         ></path>
       </svg>
-      <div class="form">
-        <div class="dia"></div>
+      <div class="formarea" id="sec3">
+        <div class="line1"></div>
+        <div class="textbox">
+          <h1>New Era</h1>
+          <h1>New Environment</h1>
+          <h1 class="aniN">New Humanity</h1>
+        </div>
+        <form class="gform">
+          <ul class="inputbox">
+            <li>
+              <label for="user">이름</label>
+              <input type="text" id="user" />
+              <!-- autofocus -->
+            </li>
+            <li>
+              <label for="age">나이</label>
+              <input type="text" id="age" />
+            </li>
+            <li>
+              <label for="sex">성별</label>
+              <input type="text" id="sex" list="pack" />
+              <datalist id="pack">
+                <option value="woman">여성</option>
+                <option value="man">남성</option>
+              </datalist>
+            </li>
+            <li>
+              <label for="mail">이메일</label>
+              <input
+                type="email"
+                id="mail"
+                placeholder="userID@abd.com"
+                required
+              />
+            </li>
+          </ul>
+          <div class="btns">
+            <button type="submit">제출하기</button>
+            <button type="reset">취소하기</button>
+          </div>
+        </form>
       </div>
     </div>
     <div class="footer">
@@ -245,7 +294,12 @@
         <p class="copyright">© 2123 Mars:Project Inc. All Rights Reserved</p>
       </div>
     </div>
+    <div class="gotop">
+      <i class="xi-arrow-up"></i>
+    </div>
     <script>
+      let anitext = document.querySelector(".formarea .textbox");
+      let logo = document.getElementById("icon");
       const content1 = document.querySelector(".content1");
       const content2 = document.querySelector(".content2");
       const content4 = document.querySelector(".content4");
@@ -312,8 +366,41 @@
           path1Length
         );
       }
+      function fadeIn() {
+        if ($(this).scrollTop() > 1000) {
+          $(".gotop").fadeIn();
+        } else {
+          $(".gotop").fadeOut();
+        }
+      }
+      function gotop() {
+        $("html").animate({ scrollTop: 0 }, 300);
+      }
+      function fontfadeIn() {
+        let value = window.scrollY;
+        console.log("scrollY", value);
+        if (value > 4400 && value < 5100) {
+          anitext.style.animation = "slide 3s ease-out forwards";
+        } else if (value > 5100) {
+          anitext.style.animation = "disapper 2s ease-out forwards";
+        } else {
+        }
+      }
+      function header() {
+        if ($(this).scrollTop() > 200) {
+          $(".header").addClass("shrink");
+          logo.src = "./images/icon_s.png";
+        } else {
+          $(".header").removeClass("shrink");
+          logo.src = "./images/icon.png";
+        }
+      }
       window.addEventListener("scroll", scrollHandler);
       window.addEventListener("scroll", scrollHandler2);
+      window.addEventListener("scroll", fadeIn);
+      window.addEventListener("scroll", fontfadeIn);
+      window.addEventListener("scroll", header);
+      document.querySelector(".gotop").onclick = gotop;
     </script>
   </body>
 </html>
