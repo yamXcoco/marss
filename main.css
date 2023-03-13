@@ -18,7 +18,7 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   width: 100%;
   /* margin: 0 auto; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 /* header */
@@ -177,12 +177,15 @@ body {
 }
 /* content3 */
 .content3 {
-  height: 120vh;
+  /* height: 120vh; */
+  /* position: relative; */
+}
+.content3 .bg {
   background-image: url('/images/space1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  width: 100%;
 }
 .content3 .textbox {
   position: absolute;

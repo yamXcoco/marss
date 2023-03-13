@@ -453,11 +453,11 @@
         let value = window.scrollY
         console.log('scrollY', value)
         if (
-          value < document.body.offsetHeight - 900 &&
+          value < document.body.offsetHeight - 1000 &&
           value > document.body.offsetHeight - 1800
         ) {
           anitext.style.animation = 'slide 3s ease-out forwards'
-        } else if (value > document.body.offsetHeight - 900) {
+        } else if (value > document.body.offsetHeight - 1000) {
           anitext.style.animation = 'disapper 2s ease-out forwards'
         } else {
           anitext.style.animation = 'disapper 2s ease-out forwards'
