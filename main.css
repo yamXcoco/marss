@@ -555,7 +555,7 @@ form {
     display: flex;
     flex-direction: column;
   }
-  @media all and (max-width: 400px) {
+  @media all and (max-width: 560px) {
     .header {
       width: 100vw;
       height: 50px;
@@ -595,7 +595,7 @@ form {
       padding-bottom: 80px;
     }
     .content2 .textbox {
-      top: -160px;
+      top: -180px;
       left: 0;
       opacity: 1;
       padding-left: 10vw;
