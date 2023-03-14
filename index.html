@@ -468,23 +468,27 @@
       function fontfadeI() {
         let value = window.scrollY
         console.log('scrollY', value)
-        if (
-          value > path2.style.strokeDashoffset % 2 &&
-          value < path2.style.strokeDashoffset * 1
-        ) {
-          anitext2.style.animation = 'comeback 3s ease-out forwards'
-        } else if (value > path2.style.strokeDashoffset) {
-          anitext2.style.animation = 'aside 2s ease-out forwards'
+        if ($(window).width() > 768) {
+          if (
+            value > path2.style.strokeDashoffset % 2 &&
+            value < path2.style.strokeDashoffset * 1
+          ) {
+            anitext2.style.animation = 'comeback 3s ease-out forwards'
+          } else if (value > path2.style.strokeDashoffset) {
+            anitext2.style.animation = 'aside 2s ease-out forwards'
+          } else {
+            anitext2.style.animation = 'aside 2s ease-out forwards'
+          }
+          if (
+            value > path3.style.strokeDashoffset &&
+            value < path4.style.strokeDashoffset * 1
+          ) {
+            anitext3.style.animation = 'comeback 3s ease-out forwards'
+          } else {
+            anitext3.style.animation = 'aside 2s ease-out forwards'
+          }
         } else {
-          anitext2.style.animation = 'aside 2s ease-out forwards'
-        }
-        if (
-          value > path3.style.strokeDashoffset &&
-          value < path4.style.strokeDashoffset * 1
-        ) {
-          anitext3.style.animation = 'comeback 3s ease-out forwards'
-        } else {
-          anitext3.style.animation = 'aside 2s ease-out forwards'
+          anitext2.style.opacity = true
         }
       }
       function header() {
